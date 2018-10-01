@@ -1,0 +1,33 @@
+<div class="recipe-list__container">
+  <mat-accordion *ngIf="recipe.length > 0">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Chicken
+        </mat-panel-title>
+        <mat-panel-description>view our chicken dishes</mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="recipe">
+        <mat-card class="recipe-card" *ngFor="let card of recipe">
+          <mat-card-header>{{ card.title }}</mat-card-header>
+          <mat-card-content> <p>{{ card.author }}</p> </mat-card-content>
+          <mat-card-content>{{ card.category }}</mat-card-content>
+          <mat-card-actions>
+            <div class="action-buttons">
+              <a
+                mat-button
+                color="primary"
+                [routerLink]="['/edit', card.id]"><i class="material-icons">
+                edit
+                </i></a>
+              <button mat-button color="warn" (click)="onDelete(card.id)"><i class="material-icons">
+                delete
+                </i></button>
+            </div>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <p class="no-content-paragraph" *ngIf="recipe.length <= 0">NO RECIPES ADDED YET - please enter your first recipe.</p>
+</div>

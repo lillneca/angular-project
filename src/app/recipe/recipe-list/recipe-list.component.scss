@@ -1,0 +1,32 @@
+.recipe {
+  display: flex;
+  overflow-x: auto;
+  padding: 2rem 0;
+  -webkit-overflow-scrolling: touch;
+
+  &-list__container {
+    text-align: center;
+    padding-top: 3rem;
+  }
+
+  &-card {
+    width: 7rem;
+    height:8rem;
+    margin-left: 1rem;
+  }
+}
+
+.no-content-paragraph {
+  font-size: 1.3rem;
+}
+
+.action-buttons {
+  display: flex;
+  width: 2rem;
+  height: auto;
+
+  & button {
+    width: 1rem;
+  }
+}
+

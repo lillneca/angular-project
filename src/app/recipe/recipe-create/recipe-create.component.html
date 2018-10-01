@@ -1,0 +1,46 @@
+<div class="recipe-form__container">
+  <form novalidate (submit)="onSaveRecipe(recipeForm)" #recipeForm="ngForm">
+    <div class="recipe-details-container">
+      <mat-form-field class="recipe-detail">
+        <mat-label>Recipe Title</mat-label>
+        <input
+          matInput
+          placeholder="recipe title"
+          name="recipeTitle"
+          [ngModel]="recipe?.title"
+          required
+          #recipeTitle="ngModel">
+        <mat-error>This field is required</mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="recipe-detail">
+        <mat-label>Recipe Author</mat-label>
+          <input
+            matInput
+            name="recipeAuthor"
+            [ngModel]="recipe?.author"
+            required
+            #recipeAuthor="ngModel">
+          <mat-error>This field is required</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="recipe-detail">
+          <mat-label>Recipe Category</mat-label>
+          <mat-select
+            name="recipeCategory"
+            [ngModel]="recipe?.category"
+            required
+            #recipeCategory="ngModel">
+            <mat-option *ngFor="let Cat of recipeCat" [value]="Cat.viewValue">
+              {{Cat.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error>This field is required</mat-error>
+        </mat-form-field>
+        <br>
+        <button mat-button type="submit">Submit</button>
+      </div>
+  </form>
+</div>
+<hr>
+
